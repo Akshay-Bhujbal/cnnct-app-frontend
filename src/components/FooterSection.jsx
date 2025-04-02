@@ -15,8 +15,11 @@ const FooterSection = () => {
     <div className='footer-section'>
         <div className='top-content'>
             <div className='buttons'>
-                <button className='login' onClick={() => navigate('/login')}>Log in</button>
-                <button className='signup' onClick={() => navigate('/signup')}>Sign up free</button>
+            <button className='login' onClick={() => navigate('/signup', { state: { isLogin: true } })}>
+                Log in
+            </button>
+
+            <button className='signup' onClick={() => navigate('/signup')}>Sign up free</button>
             </div>
             <div className='text-grid'>
                 {textItems.map((item, index) => (

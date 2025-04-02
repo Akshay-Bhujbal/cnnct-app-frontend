@@ -10,6 +10,7 @@ import AppSection from '../components/AppSection'
 import FooterSection from '../components/FooterSection'
 
 
+
 const lorem = new LoremIpsum();
 
 const LandingPage = () => {
@@ -30,8 +31,8 @@ const LandingPage = () => {
         <div className='content'>
             <div className='hero-section'>
                 <h1 className='slogan'>CNNCT - Easy</h1>
-                <h1 className='slogan'>Scheduling Ahead</h1>
-                <button className='signup' onClick={() => navigate('/signup')}>
+                <h1 className='slogan2'>Scheduling Ahead</h1>
+                <button className='signup signup2' onClick={() => navigate('/signup')}>
                     Sign up free
                 </button>
                 <img className='hero-img' src={heroImage} alt="hero-img" />
@@ -57,8 +58,9 @@ const LandingPage = () => {
 
             <div className='customer-section'>
                 <div className='cust-story'>
-                    <h1>Here's what our customer has to says</h1>
-                    <button>Read customer stories</button>
+                    <h1>Here's what our <span>Customer</span></h1>
+                    <h1>has to says</h1>
+                    <button className='read-story'>Read customer stories</button>
                 </div>
                 <div className='short-desc'>
                     <p>{lorem.generateSentences(3)}</p>

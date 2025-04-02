@@ -2,7 +2,17 @@
     display: flex;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
+
+.signup-page .logo-container {
+    position: fixed;
+    top: 40px;
+    left: 50px;
+    display: flex;
+    align-items: center;
+}
+
 
 .signup-form-container{
     width: 60vw;
@@ -18,7 +28,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 350px;
+    width: 300px;
 }
 
 .signup-img{
@@ -27,17 +37,17 @@
 }
 
 .input-box{
-    height: 40px;
-    width: 350px;
+    height: 30px;
+    width: 300px;
     border-radius: 10px;
     border: 1px solid rgba(102, 102, 102, 0.35);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     padding: 10px;
 }
 
 .header-signup h2{
     font-size: 
-    20px;
+    18px;
 }
 
 .signin-link{
@@ -46,22 +56,22 @@
 
 .input-label{
     font-size: 12px;
-}
+    color: rgba(103, 107, 95, 1);}
 
 .check-input{
     margin-right: 10px;
 }
 
 .check-label{
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .signup-button{
-    width: 350px;
-    height: 40px;
+    width: 300px;
+    height: 30px;
     background-color: rgba(102, 102, 102, 1);
     color: white;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-top: 10px;
     border: none;
   }
@@ -73,19 +83,45 @@
 
 .signin-inputbox{
     height: 40px;
-    width: 350px;
+    width: 450px;
     border-radius: 10px;
     border: 1px solid rgba(102, 102, 102, 0.35);
     margin-bottom: 10px;
     padding: 10px;
     color: rgba(103, 107, 95, 1);
+    background-color: rgba(239, 240, 236, 1);
+    border: none;
+    font-size: 12px;
+}
+
+.login-button{
+    height: 40px;
+    width: 450px;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    border: none;
+    background-color: rgba(224, 226, 217, 1);
+    color: rgba(168, 170, 162, 1);
+}
+
+.no-account{
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    gap: 5px;
 }
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 10px; /* Space between items */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; 
     margin-top: 10px;
+}
+
+.category-icon{
+    height: 20px;
+    width: 20px;
 }
 
 .reference-heading{
@@ -114,7 +150,13 @@
     border-radius: 10px;
     align-items: center;
     text-align: left;
-    padding: 10px;
+    padding: 15px;
+    gap: 15px;
+}
+
+.category-option.selected {
+    background-color: rgba(24, 119, 242, 1);
+    color: white;
 }
 
 .signup-page.reference-form{
@@ -132,8 +174,8 @@
 }
 
 .footer{
-    font-size: 12px;
+    font-size: 10px;
     position: absolute;
-    bottom: 40px;
+    bottom: 60px;
 }
 

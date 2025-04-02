@@ -1,13 +1,31 @@
 import React, {useState} from 'react';
 import axios  from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './signupPage.css'
+import '../styles/signuppage.css'
 import SignupImg from '../assets/images/signup.png'
+import logo from '../assets/images/logo.png'
+
+import icon1 from '../assets/icons/sale.png';
+import icon2 from '../assets/icons/edu.png';
+import icon3 from '../assets/icons/fin.png';
+import icon4 from '../assets/icons/gov.png';
+import icon5 from '../assets/icons/cons.png';
+import icon6 from '../assets/icons/rec.png';
+import icon7 from '../assets/icons/tech.png';
+import icon8 from '../assets/icons/mark.png';
+
 
 const categories = [
-    "Sales", "Education", "Finance", "Government & Politics",
-    "Consulting", "Recruiting", "Tech", "Marketing"
+    { name: "Sales", icon: icon1},
+    { name: "Education", icon: icon2 },
+    { name: "Finance", icon: icon3 },
+    { name: "Government & Politics", icon: icon4 },
+    { name: "Consulting", icon: icon5 },
+    { name: "Recruiting", icon: icon6 },
+    { name: "Tech", icon: icon7 },
+    { name: "Marketing", icon: icon8 }
 ];
+
 
 const SignupPage = () => {
     const [isSignup, setIsSignup] = useState(true);
@@ -104,9 +122,23 @@ const SignupPage = () => {
         }
     };
 
+    const handleContinue = () => {
+        if (!selectedCategory) {
+            setError("Please select a category before continuing.");
+            return;
+        }
+        navigate('/events'); 
+    };
+    
+
 
     return (
         <div className='signup-page'>
+            <div className='logo-container'>
+                <img src={logo} alt="Logo" className='logo'/>
+                <h2>CNNCT</h2>
+            </div>
+
             <div className='signup-form-container'>
                 {error && <p className='error'>{error}</p>}
                 {isAuthenticated ? (
@@ -121,15 +153,16 @@ const SignupPage = () => {
                             {categories.map((category, index) => (
                                 <div 
                                     key={index} 
-                                    className={`category-option ${selectedCategory === category ? 'selected' : ''}`} 
-                                    onClick={() => setSelectedCategory(category)}
+                                    className={`category-option ${selectedCategory === category.name ? 'selected' : ''}`} 
+                                    onClick={() => setSelectedCategory(category.name)}
                                 >
-                                    {category}
+                                    <img src={category.icon} alt={category.name} className="category-icon" />
+                                    {category.name}
                                 </div>
                             ))}
                         </div>
 
-                        <button className="continue-button">Continue</button>
+                        <button className="continue-button" onClick={handleContinue}>Continue</button>
                     </div>
                 ):(
 
@@ -229,7 +262,7 @@ const SignupPage = () => {
                                 <input className='signin-inputbox'
                                     type='email'
                                     name='email'
-                                    placeholder='username'
+                                    placeholder='Username'
                                     value={username}
                                     onChange={handleLoginChange}
                                     required
@@ -239,17 +272,17 @@ const SignupPage = () => {
                                 <input className='signin-inputbox'
                                     type='password'
                                     name='password'
-                                    placeholder='password'
+                                    placeholder='Password'
                                     value={loginPassword}
                                     onChange={handleLoginChange}
                                     required
                                 />
-                                <div className='login-button'>
-                                    <button type='submit'>Log in</button>
-                                </div>
                                 <div>
+                                    <button className='login-button' type='submit'>Log in</button>
+                                </div>
+                                <div className='no-account'>
                                     <span>Don't have an account?</span>
-                                    <a onClick={() => setIsSignup(true)} className="signup-link">Sign up</a>
+                                    <a href="#" onClick={(e) => { e.preventDefault(); setIsSignup(true); }}>Sign up</a>
                                 </div>
                                 
                             </div>
